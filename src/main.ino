@@ -12,7 +12,7 @@ void setup() {
     //pinMode(switch_pin, INPUT);
     WifiSetup();
     //light_state = LOW;
-    //ArduinoOTA_setup();
+    ArduinoOTA_setup();
 
 }
 
@@ -20,6 +20,6 @@ void setup() {
 void loop() {
     digitalWrite(light_pin, light_state);
     WifiLoop();
-    //ArduinoOTA_loop();
+    ArduinoOTA_loop();
 
 }
