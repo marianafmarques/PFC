@@ -84,8 +84,8 @@ void WifiLoop(){
         client.print("Off");
     }
 
-    digitalWrite(light_pin, light_state);
-    digitalWrite(switch_pin, light_state);
+    //digitalWrite(light_pin, light_state);
+    //digitalWrite(switch_pin, light_state);
     client.println("<br><br>");
     client.println("Click <a href=\"/LED=ON\">here</a> turn the LED on pin 2 ON<br>");
     client.println("Click <a href=\"/LED=OFF\">here</a> turn the LED on pin 2 OFF<br>");

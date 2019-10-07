@@ -7,8 +7,8 @@ int light_state;
 void setup() {
 
     pinMode(light_pin, OUTPUT);
-    pinMode(switch_pin, FUNCTION_3);
-    pinMode(switch_pin, INPUT);
+    //pinMode(switch_pin, FUNCTION_3);
+    //pinMode(switch_pin, INPUT);
     //pinMode(switch_pin, INPUT);
     WifiSetup();
     //light_state = LOW;
@@ -18,7 +18,7 @@ void setup() {
 
 // the loop function runs over and over again forever
 void loop() {
-    digitalWrite(light_pin, light_state);
+    digitalWrite(light_pin, HIGH);
     WifiLoop();
     ArduinoOTA_loop();
 
