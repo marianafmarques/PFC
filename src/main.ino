@@ -1,5 +1,5 @@
 #include <Arduino.h>
-int light_pin = 2;
+int light_pin = 1;
 int switch_pin = 3;
 int light_state;
 
@@ -10,7 +10,7 @@ void setup() {
     pinMode(switch_pin, FUNCTION_3);
     pinMode(switch_pin, INPUT);
     //pinMode(switch_pin, INPUT);
-    WifiSetup();
+    //WifiSetup();
     //light_state = LOW;
     //ArduinoOTA_setup();
 
@@ -18,8 +18,9 @@ void setup() {
 
 // the loop function runs over and over again forever
 void loop() {
-    digitalWrite(light_pin, light_state);
-    WifiLoop();
+    if(digitalRead(switch_pin) == HIGH)
+        digitalWrite(light_pin, LOW);
+    //WifiLoop();
     //ArduinoOTA_loop();
 
 }
