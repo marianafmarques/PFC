@@ -1,5 +1,5 @@
 #include <Arduino.h>
-int light_pin = 2;
+int light_pin = 0;
 int switch_pin = 3;
 int light_state;
 
