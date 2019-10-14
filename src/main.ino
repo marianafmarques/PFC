@@ -1,25 +1,34 @@
-#include <Arduino.h>
-int light_pin = 0;
-int switch_pin = 3;
-int light_state;
 
-// the setup function runs once when you press reset or power the board
+#include <Bounce2.h>
+
+int LED1pin = 2;
+bool LED1status = LOW;
+
+int LedStatuspin = 1;
+int LedStatusStatus = LOW;
+
+#define BUTTON_PIN 3
+Bounce debouncer = Bounce();
+
 void setup() {
+  delay(100);
+  pinMode(LED1pin, OUTPUT);
+  pinMode(LedStatuspin, OUTPUT);
 
-    pinMode(light_pin, OUTPUT);
-    //pinMode(switch_pin, FUNCTION_3);
-    //pinMode(switch_pin, INPUT);
-    //pinMode(switch_pin, INPUT);
-    WifiSetup();
-    //light_state = LOW;
-    ArduinoOTA_setup();
-
+  pinMode(BUTTON_PIN,INPUT_PULLUP);
+  debouncer.attach(BUTTON_PIN);
+  debouncer.interval(50); // interval in ms
+  setupWifi();
+  setupWebServer();
 }
 
-// the loop function runs over and over again forever
 void loop() {
-    digitalWrite(light_pin, HIGH);
-    WifiLoop();
-    ArduinoOTA_loop();
+  debouncer.update();
+  loopWebServer();
+  loopWifi();
 
+  if(debouncer.rose() || debouncer.fell()){
+    LED1status = !LED1status;
+  }
+  digitalWrite(LED1pin, LED1status);
 }
