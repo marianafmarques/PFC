@@ -18,22 +18,22 @@ void loopWebServer(){
 
 
 void handle_OnConnect() {
-  server.send(200, "text/html", SendHTML(LED1status));
+  server.send(200, "text/html", SendHTML(LightStatus));
 }
 
 void handle_led1on() {
-  LED1status = HIGH;
-  server.send(200, "text/html", SendHTML(LED1status));
+  LightStatus = HIGH;
+  server.send(200, "text/html", SendHTML(LightStatus));
 }
 
 void handle_led1off() {
-  LED1status = LOW;
-  server.send(200, "text/html", SendHTML(LED1status));
+  LightStatus = LOW;
+  server.send(200, "text/html", SendHTML(LightStatus));
 }
 
 void handle_led1toggle() {
-  LED1status = !LED1status;
-  server.send(200, "text/html", SendHTML(LED1status));
+  LightStatus = !LightStatus;
+  server.send(200, "text/html", SendHTML(LightStatus));
 }
 
 

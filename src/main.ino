@@ -1,21 +1,20 @@
 
 #include <Bounce2.h>
 
-int LED1pin = 1;
-bool LED1status = LOW;
+int LightPin = 4;
+bool LightStatus = LOW;
 
-int LedStatuspin = 2;
-int LedStatusStatus = LOW;
+int LedWifiPin = 2;
 
-#define BUTTON_PIN 3
+#define BUTTON_PIN 5
 Bounce debouncer = Bounce();
 
 void setup() {
   delay(100);
-  pinMode(LED1pin, OUTPUT);
-  pinMode(LedStatuspin, OUTPUT);
+  pinMode(LightPin, OUTPUT);
+  pinMode(LedWifiPin, OUTPUT);
 
-  pinMode(BUTTON_PIN,INPUT_PULLUP);
+  pinMode(BUTTON_PIN,INPUT);
   debouncer.attach(BUTTON_PIN);
   debouncer.interval(50); // interval in ms
   setupWifi();
@@ -30,7 +29,7 @@ void loop() {
   loopBlynk();
 
   if(debouncer.rose() || debouncer.fell()){
-    LED1status = !LED1status;
+    LightStatus = !LightStatus;
   }
-  digitalWrite(LED1pin, LED1status);
+  digitalWrite(LightPin, LightStatus);
 }
