@@ -1,10 +1,10 @@
 
 #include <Bounce2.h>
 
-int LED1pin = 1;
+int LED1pin = 2;
 bool LED1status = LOW;
 
-int LedStatuspin = 2;
+int LedStatuspin = 1;
 int LedStatusStatus = LOW;
 
 #define BUTTON_PIN 3
