@@ -1,10 +1,10 @@
 
 #include <Bounce2.h>
 
-int LED1pin = 2;
+int LED1pin = 1;
 bool LED1status = LOW;
 
-int LedStatuspin = 1;
+int LedStatuspin = 2;
 int LedStatusStatus = LOW;
 
 #define BUTTON_PIN 3
@@ -15,7 +15,7 @@ void setup() {
   pinMode(LED1pin, OUTPUT);
   pinMode(LedStatuspin, OUTPUT);
 
-  pinMode(BUTTON_PIN,INPUT_PULLDOWN);
+  pinMode(BUTTON_PIN,INPUT_PULLUP);
   debouncer.attach(BUTTON_PIN);
   debouncer.interval(50); // interval in ms
   setupWifi();
