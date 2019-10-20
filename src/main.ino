@@ -15,17 +15,19 @@ void setup() {
   pinMode(LED1pin, OUTPUT);
   pinMode(LedStatuspin, OUTPUT);
 
-  pinMode(BUTTON_PIN,INPUT_PULLUP);
+  pinMode(BUTTON_PIN,INPUT_PULLDOWN);
   debouncer.attach(BUTTON_PIN);
   debouncer.interval(50); // interval in ms
   setupWifi();
   setupWebServer();
+  setupBlynk();
 }
 
 void loop() {
   debouncer.update();
   loopWebServer();
   loopWifi();
+  loopBlynk();
 
   if(debouncer.rose() || debouncer.fell()){
     LED1status = !LED1status;
