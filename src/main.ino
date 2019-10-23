@@ -32,5 +32,15 @@ void loop() {
   if(debouncer.rose() || debouncer.fell()){
     LED1status = !LED1status;
   }
+
+  // if(digitalRead(BUTTON_PIN) == HIGH){
+  //   LED1status = HIGH;
+  // }
+  // else
+  // {
+  //     LED1status = LOW;
+  // }
+
+  // digitalWrite(LedStatuspin, LED1status);
   digitalWrite(LED1pin, LED1status);
 }
