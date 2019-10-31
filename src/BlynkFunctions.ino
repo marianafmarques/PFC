@@ -1,4 +1,3 @@
-#include <ESP8266WiFi.h>
 #include <BlynkSimpleEsp8266.h>
 
 char auth[] = "9-v08woyP24BlG2hmq_fQE5Vutjm5X7K";
