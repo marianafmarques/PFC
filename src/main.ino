@@ -1,12 +1,14 @@
 
 #include <Bounce2.h>
 
+//D2
 int LightPin = 4;
 bool LightStatus = LOW;
 
 int LedWifiPin = 2;
 
-#define BUTTON_PIN 5
+//D5
+#define SWITCH_PIN 14
 Bounce debouncer = Bounce();
 
 void setup() {
@@ -14,17 +16,17 @@ void setup() {
   pinMode(LightPin, OUTPUT);
   pinMode(LedWifiPin, OUTPUT);
 
-  pinMode(BUTTON_PIN,INPUT);
-  debouncer.attach(BUTTON_PIN);
+  pinMode(SWITCH_PIN,INPUT);
+  debouncer.attach(SWITCH_PIN);
   debouncer.interval(50); // interval in ms
   setupWifi();
-  setupWebServer();
+  //setupWebServer();
   setupBlynk();
 }
 
 void loop() {
   debouncer.update();
-  loopWebServer();
+  //loopWebServer();
   loopWifi();
   loopBlynk();
 
